@@ -97,12 +97,13 @@ You don't have to keep your LoRA called "pytorch_lora_weights", you are
 free to rename it to whatever you want.
 
 ### EPOCHS AND SAVING CHECKPOINTS
-(It is assumed that you have kept the Batch Size at 1)
+**(It is assumed that you have kept the Batch Size at 1)**
+
 To keep it simple, one Epoch is one "revolution" of your training images,
 so for 24 instance images one Epoch is 24 steps. Two Epochs are 48 steps.
 You can calculate the total amount of steps using this formula:
 
-Total Steps = Number of Epochs * (Number of Training Images)
+**Total Steps = Number of Epochs * (Number of Training Images)**
 
 It is hard to say how many Epochs are sufficient, because it depends on
 how many images you are training. For 10 images, you should train for
@@ -114,6 +115,9 @@ steps (if your total steps are 6400, you can enter 1600 or 800)
 
 So even if your final LoRA is complete garbage and overfitted, you can
 still try out the LoRAs that were saved in between.
+
+For Dreambooth model training with class images you need to include the
+number of class images with the total step calculation.
 
 ### Use 8-bit-AdamW
 This optimizer saves a lot of VRAM over AdamW, at only a minimal loss in

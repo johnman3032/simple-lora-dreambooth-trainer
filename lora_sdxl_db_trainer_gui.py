@@ -83,22 +83,22 @@ resolution_label = ttk.Label(root, text="Resolution (Advanced, leave at 1024 for
 resolution_combobox = ttk.Combobox(root, values=[768, 896, 1024, 1280], width=20)
 resolution_combobox.set(1024)
 
-train_batch_size_label = ttk.Label(root, text="Train Batch Size (How many images to train per step):")
+train_batch_size_label = ttk.Label(root, text="Train Batch Size (How many images to train per step, see README for info):")
 train_batch_size_entry = ttk.Entry(root, width=10)
 train_batch_size_entry.insert(0, "1")
 
-num_train_epochs_label = ttk.Label(root, text="Num of Train Epochs (1 Epoch = 1 Revolution of all your training images):")
+num_train_epochs_label = ttk.Label(root, text="Num of Train Epochs (see README for more info):")
 num_train_epochs_entry = ttk.Entry(root, width=10)
 
 gradient_accumulation_steps_label = ttk.Label(root, text="Gradient Accumulation Steps (Advanced, leave at 1):")
 gradient_accumulation_steps_entry = ttk.Entry(root, width=10)
 gradient_accumulation_steps_entry.insert(0, "1")
 
-learning_rate_label = ttk.Label(root, text="Learning Rate (0.0001 for AdamW, 1 for Prodigy):")
+learning_rate_label = ttk.Label(root, text="Learning Rate (recommend 0.0001 or 2e-5 for AdamW, 1 for Prodigy):")
 learning_rate_entry = ttk.Entry(root, width=15)
 learning_rate_entry.insert(0, "0.0001")
 
-optimizer_label = ttk.Label(root, text="Optimizer (Recommend AdamW or Prodigy):")
+optimizer_label = ttk.Label(root, text="Optimizer:")
 optimizer_combobox = ttk.Combobox(root, values=["AdamW", "Prodigy"], width=20)
 optimizer_combobox.set("AdamW")
 

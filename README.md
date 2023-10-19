@@ -119,7 +119,11 @@ So even if your final LoRA is complete garbage and overfitted, you can
 still try out the LoRAs that were saved in between.
 
 For Dreambooth model training with class images you need to include the
-number of class images with the total step calculation.
+number of class images with the total step calculation. Remember to keep your
+"output-path" folder empty, because you will have to convert the Diffusers-type
+model over to a Safetensors-type model. This is quite easy, you just have to run
+"diffusers_to_safetensors_converter.bat", and the output model will be saved
+in "converted-model-path".
 
 ### Use 8-bit-AdamW
 This optimizer saves a lot of VRAM over AdamW, at only a minimal loss in

@@ -76,6 +76,8 @@ you can even enter "1girl" as a class prompt but still choose to use
 "itok30 anime girl" instead of "itok30 1girl", even if you trained on
 the latter.
 
+Remember to not forget your class token when generating images!
+
 ### BASE MODEL PATH
 I recommend you keep the standard sd1.5/sdxl base model, even if you train
 on something like anime images. Just use the LoRA with an anime model

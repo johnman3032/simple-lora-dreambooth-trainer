@@ -52,15 +52,15 @@ def run_script():
         cmd.extend(["--enable_xformers_memory_efficient_attention"])
     if scale_lr_var.get():
         cmd.extend(["--scale_lr"])
-    #if pre_compute_text_embeddings_var.get():
-    #    cmd.extend(["--pre_compute_text_embeddings"])
+    if pre_compute_text_embeddings_var.get():
+        cmd.extend(["--train_text_encoder"])
 
     subprocess.run(cmd)
 
     print(cmd)
 
 root = tk.Tk()
-root.title("SD 1.5 LoRA Training GUI")
+root.title("SD 1.5 Dreambooth Model Training GUI")
 
 # Creating input widgets
 pretrained_model_label = ttk.Label(root, text="Diffusers Base Model Path:")
@@ -151,8 +151,8 @@ enable_xformers_memory_checkbox = ttk.Checkbutton(root, text="Enable xFormers (R
 scale_lr_var = tk.BooleanVar()
 scale_lr_checkbox = ttk.Checkbutton(root, text="Scale Learning Rate by batch size, choose if b.s. higher than 1", variable=scale_lr_var)
 
-# pre_compute_text_embeddings_var = tk.BooleanVar()
-# pre_compute_text_embeddings_checkbox = ttk.Checkbutton(root, text="Pre Compute Text Embeddings (Recommended, saves VRAM. Do NOT select with \"Train Text Encoder\")", variable=pre_compute_text_embeddings_var)
+train_text_encoder_var = tk.BooleanVar()
+train_text_encoder_checkbox = ttk.Checkbutton(root, text="Trains the text encoder. Given that you are training a full Dreambooth model, it is recommended.", variable=pre_compute_text_embeddings_var)
 
 # Button to run the script
 run_button = ttk.Button(root, text="Start Training", command=run_script)
@@ -164,7 +164,7 @@ set_grads_to_none_checkbox.grid(row=19, column=1, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=20, column=0, sticky='w', pady=5)
 enable_xformers_memory_checkbox.grid(row=22, column=0, sticky='w', pady=5)
 scale_lr_checkbox.grid(row=23, column=0, sticky='w', pady=5)
-# pre_compute_text_embeddings_checkbox.grid(row=22, column=1, sticky='w', pady=5)
+train_text_encoder_checkbox.grid(row=22, column=1, sticky='w', pady=5)
 # Placing widgets on the window using grid layout
 
 pretrained_model_label.grid(row=0, column=0, sticky='w', pady=5)
@@ -230,7 +230,7 @@ set_grads_to_none_checkbox.grid(row=21, column=0, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=22, column=0, sticky='w', pady=5)
 scale_lr_checkbox.grid(row=23, column=0, sticky='w', pady=5)
 enable_xformers_memory_checkbox.grid(row=24, column=0, sticky='w', pady=5)
-# pre_compute_text_embeddings_checkbox.grid(row=25, column=0, sticky='w', pady=5)
+train_text_encoder_checkbox.grid(row=25, column=0, sticky='w', pady=5)
 
 # Run button
 run_button.grid(row=26, column=0, columnspan=3, pady=20)

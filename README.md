@@ -148,6 +148,10 @@ training images, it also greately increases prompt adherence.
 As an example the "Waifu-Diffusion" model was trained on
 Danbooru captions and keywords, which is why Danbooru tags
 work a lot better with a fine-tune like "Waifu-Diffusion".
+
 If you are interested in fine-tuning, check out bmaltais's
-koyha_ss fork: https://github.com/bmaltais/kohya_ss
+koyha_ss fork: 
+
+https://github.com/bmaltais/kohya_ss
+
 It is more complicated, but comes with a huge amount of features.

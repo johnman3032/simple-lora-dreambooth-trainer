@@ -105,7 +105,7 @@ You can calculate the total amount of steps using this formula:
 **Total Steps = Number of Epochs * (Number of Training Images)**
 
 It is hard to say how many Epochs are sufficient, because it depends on
-how many images you are training. For 10 images, you should train for
+how many images you have for training. For 10 images, it is recommended that you train for
 32-256 Epochs. For 100 images, maybe 8-64 is sufficient. This is why
 it makes sense to set a high Epoch number, calculate the total
 amount of steps using the above formula, and then enter into

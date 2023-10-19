@@ -72,7 +72,7 @@ you can even enter "1girl" as a class prompt but still choose to use
 the latter.
 
 ### BASE MODEL PATH
-I recommend you keep the standard sd1.5 base model, even if you train
+I recommend you keep the standard sd1.5/sdxl base model, even if you train
 on something like anime images. Just use the LoRA with an anime model
 later on.
 

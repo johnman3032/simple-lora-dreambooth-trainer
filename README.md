@@ -33,19 +33,27 @@ GUI as well.
 --Start building a collection of training images. Here are some
 criteria--:
 ->They should be all the same format (.png recommended) 
+
 ->For SD1.5, at least one dimension should always be 512px 
     (512x640, 384x512, 256x512, etc.)
+    
 ->If you want to keep it simple, crop all images to 512x512
+
 ->Note that this makes it more difficult to generate good
     images in other aspect ratios later on, but it is good to
     start off simple.
+    
 ->For SDXL the standard resolution is 1024x1024
+
 ->Avoid pixelated, blurry, and "chopped up" images
+
 ->The images should be diverse and unique, but generally have
     the same style (don't put a photo of a dog into a bunch
     of anime images)
+    
 ->Tip: select all images, then rename one of them to a random letter,
     this is a fast way to number them, although it is not required.
+    
 Once you are done building your image dataset, throw them into the
 "instance-imgs" folder for SD1.5 or the "instance-imgs-sdxl" for SDXL.
 

@@ -100,14 +100,14 @@ work for 30XX/400XX series Nvidia GPUs.
 
 
 
->WHAT IS A LoRA?
+### WHAT IS A LoRA?
 It is basically a smaller model that is "mounted" on the main
 Stable Diffusion checkpoint. It is practical because it takes a
 lot less VRAM to train than a full Dreambooth
 
 
 
->Dreambooth technique vs. Fine-tune technique
+### Dreambooth technique vs. Fine-tune technique
 This implementation only supports the Dreambooth technique. The
 advantage is that you don't need any .txt captions along with
 your images, the disadvantage is that you can't "fine-tune". I
@@ -126,4 +126,3 @@ work a lot better with a fine-tune like "Waifu-Diffusion".
 If you are interested in fine-tuning, check out bmaltais's
 koyha_ss fork: https://github.com/bmaltais/kohya_ss
 It is more complicated, but comes with a huge amount of features.
-

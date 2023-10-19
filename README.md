@@ -1,6 +1,9 @@
 **NOTE: The LoRAs only work for ComfyUI at this time, A1111 and other
 UIs load LoRAs differently.**
 
+**Python installation required, I recommend Python 3.10.6 but slightly
+newer/older versions should work as well.**
+
 This is a small training GUI for Stable Diffusion 1.5 and XL
 It is intended to simplify the Stable Diffusion training process,
 and thus make it more accessible for a wider audience.

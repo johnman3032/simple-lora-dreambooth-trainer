@@ -52,7 +52,7 @@ def run_script():
         cmd.extend(["--enable_xformers_memory_efficient_attention"])
     if scale_lr_var.get():
         cmd.extend(["--scale_lr"])
-    if pre_compute_text_embeddings_var.get():
+    if train_text_encoder_var.get():
         cmd.extend(["--train_text_encoder"])
 
     subprocess.run(cmd)

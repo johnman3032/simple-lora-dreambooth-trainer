@@ -52,8 +52,8 @@ def run_script():
         cmd.extend(["--enable_xformers_memory_efficient_attention"])
     if scale_lr_var.get():
         cmd.extend(["--scale_lr"])
-    if pre_compute_text_embeddings_var.get():
-        cmd.extend(["--pre_compute_text_embeddings"])
+    #if pre_compute_text_embeddings_var.get():
+    #    cmd.extend(["--pre_compute_text_embeddings"])
 
     subprocess.run(cmd)
 
@@ -164,7 +164,7 @@ set_grads_to_none_checkbox.grid(row=19, column=1, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=20, column=0, sticky='w', pady=5)
 enable_xformers_memory_checkbox.grid(row=22, column=0, sticky='w', pady=5)
 scale_lr_checkbox.grid(row=23, column=0, sticky='w', pady=5)
-pre_compute_text_embeddings_checkbox.grid(row=22, column=1, sticky='w', pady=5)
+# pre_compute_text_embeddings_checkbox.grid(row=22, column=1, sticky='w', pady=5)
 # Placing widgets on the window using grid layout
 
 pretrained_model_label.grid(row=0, column=0, sticky='w', pady=5)
@@ -230,7 +230,7 @@ set_grads_to_none_checkbox.grid(row=21, column=0, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=22, column=0, sticky='w', pady=5)
 scale_lr_checkbox.grid(row=23, column=0, sticky='w', pady=5)
 enable_xformers_memory_checkbox.grid(row=24, column=0, sticky='w', pady=5)
-pre_compute_text_embeddings_checkbox.grid(row=25, column=0, sticky='w', pady=5)
+# pre_compute_text_embeddings_checkbox.grid(row=25, column=0, sticky='w', pady=5)
 
 # Run button
 run_button.grid(row=26, column=0, columnspan=3, pady=20)

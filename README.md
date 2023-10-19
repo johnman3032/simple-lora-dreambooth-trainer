@@ -10,13 +10,12 @@ This is a small training GUI for Stable Diffusion 1.5 and XL
 It is intended to simplify the Stable Diffusion training process,
 and thus make it more accessible for a wider audience.
 
-It can train SD1.5 LoRAs using as little as 4GB VRAM (6GB VRAM GPU recommended)
-
-It can train SDXL LoRAs using as little as 12GB VRAM (16GB VRAM GPU recommended)
-
 Nonetheless, there are some concepts you should know in order to
 use this GUI effectively.
 
+It can train SD1.5 LoRAs using as little as 4GB VRAM (6GB VRAM GPU recommended)
+
+It can train SDXL LoRAs using as little as 12GB VRAM (16GB VRAM GPU recommended)
 
 I am going to try to keep this as short as possible, if you want
 more "in depth" information, there are many tutorials and guides

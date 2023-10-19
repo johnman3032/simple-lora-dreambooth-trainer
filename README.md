@@ -8,7 +8,10 @@ newer/older versions should work as well.**
 
 This is a small training GUI for Stable Diffusion 1.5 and XL
 It is intended to simplify the Stable Diffusion training process,
-and thus make it more accessible for a wider audience.
+and thus make it more accessible for a wider audience. Currently this
+GUI is for Nvidia GPUs on Windows, you *may* be able to get it to
+work on AMD GPUs using the ROCm version of PyTorch on Linux by editing
+the .bat files and turning them into .sh files.
 
 Nonetheless, there are some concepts you should know in order to
 use this GUI effectively.

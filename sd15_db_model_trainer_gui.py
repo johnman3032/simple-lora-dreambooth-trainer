@@ -36,7 +36,6 @@ def run_script():
     cmd.extend(["--lr_warmup_steps", lr_warmup_steps_entry.get()])
     cmd.extend(["--mixed_precision", mixed_precision_combobox.get()])
     cmd.extend(["--prior_generation_precision", prior_generation_precision_combobox.get()])
-    cmd.extend(["--offset_noise", offset_noise_entry.get()])
     # cmd.extend(["--with_prior_preservation"])
     
     # Flags
@@ -54,6 +53,8 @@ def run_script():
         cmd.extend(["--scale_lr"])
     if train_text_encoder_var.get():
         cmd.extend(["--train_text_encoder"])
+    if offset_noise_var.get():
+        cmd.extend(["--offset_noise"])
 
     subprocess.run(cmd)
 
@@ -131,9 +132,8 @@ prior_generation_precision_label = ttk.Label(root, text="Prior Generation Precis
 prior_generation_precision_combobox = ttk.Combobox(root, values=["no", "fp32", "fp16", "bf16"], width=10)
 prior_generation_precision_combobox.set("fp16")
 
-offset_noise_label = ttk.Label(root, text="Offset noise, improves editability of the model. Recommended value: 0.05")
-offset_noise_entry = ttk.Entry(root, width=10)
-offset_noise_entry.insert(0, "0.05")
+offset_noise_var = tk.BooleanVar()
+offset_noise_checkbox = ttk.Checkbutton(root, text="Offset noise, improves editability of the model. Recommended.", variable=offset_noise)
 
 # Checkboxes
 with_prior_preservation_var = tk.BooleanVar()
@@ -221,10 +221,8 @@ mixed_precision_combobox.grid(row=17, column=1, pady=5)
 prior_generation_precision_label.grid(row=18, column=0, sticky='w', pady=5)
 prior_generation_precision_combobox.grid(row=18, column=1, pady=5)
 
-offset_noise_label.grid(row=19, column=0, sticky='w', pady=5)
-offset_noise_entry.grid(row=19, column=1, pady=5)
-
 # Checkboxes
+offset_noise_checkbox.grid(row=19, column=0, sticky='w', pady=5)
 with_prior_preservation_checkbox.grid(row=20, column=0, sticky='w', pady=5)
 set_grads_to_none_checkbox.grid(row=21, column=0, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=22, column=0, sticky='w', pady=5)

@@ -14,7 +14,7 @@ def run_script():
     """Function to execute the script with the chosen arguments."""
     current_dir = os.path.dirname(os.path.abspath(__file__))
     python_exe_path = os.path.join(current_dir, "venv", "Scripts", "python.exe")
-    script_path = os.path.join(current_dir, "train_dreambooth_lora.py")
+    script_path = os.path.join(current_dir, "train_dreambooth.py")
 
     cmd = [python_exe_path, script_path]
 
@@ -37,11 +37,11 @@ def run_script():
     cmd.extend(["--mixed_precision", mixed_precision_combobox.get()])
     cmd.extend(["--prior_generation_precision", prior_generation_precision_combobox.get()])
     cmd.extend(["--offset_noise", offset_noise_entry.get()])
-    cmd.extend(["--with_prior_preservation"])
+    # cmd.extend(["--with_prior_preservation"])
     
     # Flags
-    #if with_prior_preservation_var.get():
-    #    cmd.extend(["--with_prior_preservation"])
+    if with_prior_preservation_var.get():
+        cmd.extend(["--with_prior_preservation"])
     if set_grads_to_none_var.get():
         cmd.extend(["--set_grads_to_none"])
     if gradient_checkpointing_var.get():
@@ -108,9 +108,9 @@ gradient_accumulation_steps_label = ttk.Label(root, text="Gradient Accumulation 
 gradient_accumulation_steps_entry = ttk.Entry(root, width=10)
 gradient_accumulation_steps_entry.insert(0, "1")
 
-learning_rate_label = ttk.Label(root, text="Learning Rate (0.0001 recommended):")
+learning_rate_label = ttk.Label(root, text="Learning Rate (2e-6 recommended):")
 learning_rate_entry = ttk.Entry(root, width=15)
-learning_rate_entry.insert(0, "0.0001")
+learning_rate_entry.insert(0, "2e-6")
 
 use_8bit_adam_var = tk.BooleanVar()
 use_8bit_adam_checkbox = ttk.Checkbutton(root, text="Use 8-bit-AdamW (regular AdamW will be used otherwise)", variable=use_8bit_adam_var)
@@ -136,8 +136,8 @@ offset_noise_entry = ttk.Entry(root, width=10)
 offset_noise_entry.insert(0, "4")
 
 # Checkboxes
-#with_prior_preservation_var = tk.BooleanVar()
-#with_prior_preservation_checkbox = ttk.Checkbutton(root, text="With Prior Preservation (Advanced, w/ class images only)", variable=with_prior_preservation_var)
+with_prior_preservation_var = tk.BooleanVar()
+with_prior_preservation_checkbox = ttk.Checkbutton(root, text="With Prior Preservation (adds prior preservation loss, recommended.)", variable=with_prior_preservation_var)
 
 set_grads_to_none_var = tk.BooleanVar()
 set_grads_to_none_checkbox = ttk.Checkbutton(root, text="Save more VRAM by setting the grads to none instead of zero. Recommended.", variable=set_grads_to_none_var)
@@ -151,15 +151,15 @@ enable_xformers_memory_checkbox = ttk.Checkbutton(root, text="Enable xFormers (R
 scale_lr_var = tk.BooleanVar()
 scale_lr_checkbox = ttk.Checkbutton(root, text="Scale Learning Rate by batch size, choose if b.s. higher than 1", variable=scale_lr_var)
 
-pre_compute_text_embeddings_var = tk.BooleanVar()
-pre_compute_text_embeddings_checkbox = ttk.Checkbutton(root, text="Pre Compute Text Embeddings (Recommended, saves VRAM. Do NOT select with \"Train Text Encoder\")", variable=pre_compute_text_embeddings_var)
+# pre_compute_text_embeddings_var = tk.BooleanVar()
+# pre_compute_text_embeddings_checkbox = ttk.Checkbutton(root, text="Pre Compute Text Embeddings (Recommended, saves VRAM. Do NOT select with \"Train Text Encoder\")", variable=pre_compute_text_embeddings_var)
 
 # Button to run the script
 run_button = ttk.Button(root, text="Start Training", command=run_script)
 
 
 # Checkboxes
-#with_prior_preservation_checkbox.grid(row=19, column=0, sticky='w', pady=5)
+with_prior_preservation_checkbox.grid(row=19, column=0, sticky='w', pady=5)
 set_grads_to_none_checkbox.grid(row=19, column=1, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=20, column=0, sticky='w', pady=5)
 enable_xformers_memory_checkbox.grid(row=22, column=0, sticky='w', pady=5)
@@ -225,7 +225,7 @@ offset_noise_label.grid(row=19, column=0, sticky='w', pady=5)
 offset_noise_entry.grid(row=19, column=1, pady=5)
 
 # Checkboxes
-#with_prior_preservation_checkbox.grid(row=20, column=0, sticky='w', pady=5)
+with_prior_preservation_checkbox.grid(row=20, column=0, sticky='w', pady=5)
 set_grads_to_none_checkbox.grid(row=21, column=0, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=22, column=0, sticky='w', pady=5)
 scale_lr_checkbox.grid(row=23, column=0, sticky='w', pady=5)

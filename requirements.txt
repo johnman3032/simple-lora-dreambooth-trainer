@@ -4,5 +4,4 @@ transformers
 ftfy
 Jinja2
 bitsandbytes
-bitsandbytes_windows
 prodigyopt

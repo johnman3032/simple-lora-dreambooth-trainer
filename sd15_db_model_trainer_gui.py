@@ -152,7 +152,7 @@ scale_lr_var = tk.BooleanVar()
 scale_lr_checkbox = ttk.Checkbutton(root, text="Scale Learning Rate by batch size, choose if b.s. higher than 1", variable=scale_lr_var)
 
 train_text_encoder_var = tk.BooleanVar()
-train_text_encoder_checkbox = ttk.Checkbutton(root, text="Trains the text encoder. Given that you are training a full Dreambooth model, it is recommended.", variable=pre_compute_text_embeddings_var)
+train_text_encoder_checkbox = ttk.Checkbutton(root, text="Trains the text encoder. Given that you are training a full Dreambooth model, it is recommended.", variable=train_text_encoder_var)
 
 # Button to run the script
 run_button = ttk.Button(root, text="Start Training", command=run_script)

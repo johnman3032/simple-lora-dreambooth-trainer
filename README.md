@@ -1,3 +1,4 @@
+*Made using scripts from https://github.com/huggingface/diffusers*
 **NOTE: The LoRAs only work for ComfyUI at this time, A1111 and other
 UIs load LoRAs differently.**
 

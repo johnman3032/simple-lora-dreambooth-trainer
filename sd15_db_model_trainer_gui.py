@@ -133,7 +133,7 @@ prior_generation_precision_combobox.set("fp16")
 
 offset_noise_label = ttk.Label(root, text="Offset noise, improves editability of the model. Recommended value: 0.05")
 offset_noise_entry = ttk.Entry(root, width=10)
-offset_noise_entry.insert(0, "4")
+offset_noise_entry.insert(0, "0.05")
 
 # Checkboxes
 with_prior_preservation_var = tk.BooleanVar()

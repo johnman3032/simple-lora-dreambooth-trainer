@@ -1355,30 +1355,30 @@ def main(args):
 
         # Final inference
         # Load previous pipeline
-        pipeline = DiffusionPipeline.from_pretrained(
-            args.pretrained_model_name_or_path, revision=args.revision, torch_dtype=weight_dtype
-        )
+        # pipeline = DiffusionPipeline.from_pretrained(
+        #     args.pretrained_model_name_or_path, revision=args.revision, torch_dtype=weight_dtype
+        # )
 
         # We train on the simplified learning objective. If we were previously predicting a variance, we need the scheduler to ignore it
         scheduler_args = {}
 
-        if "variance_type" in pipeline.scheduler.config:
-            variance_type = pipeline.scheduler.config.variance_type
+        # if "variance_type" in pipeline.scheduler.config:
+        #     variance_type = pipeline.scheduler.config.variance_type
 
-            if variance_type in ["learned", "learned_range"]:
-                variance_type = "fixed_small"
+        #     if variance_type in ["learned", "learned_range"]:
+        #         variance_type = "fixed_small"
 
-            scheduler_args["variance_type"] = variance_type
+        #     scheduler_args["variance_type"] = variance_type
 
-        pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config, **scheduler_args)
+        # pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config, **scheduler_args)
 
-        pipeline = pipeline.to(accelerator.device)
+        # pipeline = pipeline.to(accelerator.device)
 
         # load attention processors
-        pipeline.load_lora_weights(args.output_dir, weight_name="pytorch_lora_weights.safetensors")
+        # pipeline.load_lora_weights(args.output_dir, weight_name="pytorch_lora_weights.safetensors")
 
         # run inference
-        images = []
+        # images = []
         if args.validation_prompt and args.num_validation_images > 0:
             generator = torch.Generator(device=accelerator.device).manual_seed(args.seed) if args.seed else None
             images = [

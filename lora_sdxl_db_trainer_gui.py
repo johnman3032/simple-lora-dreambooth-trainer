@@ -60,7 +60,7 @@ root.title("SDXL LoRA Training GUI")
 # Creating input widgets
 pretrained_model_label = ttk.Label(root, text="Diffusers Base Model Path:")
 pretrained_model_entry = ttk.Entry(root, width=50)
-pretrained_model_entry.insert(0, "base-model-path-sdxl/sdxl-fp16-only")
+pretrained_model_entry.insert(0, "base-model-path-sdxl/sdxl_fp16_only")
 pretrained_model_button = ttk.Button(root, text="Browse", command=lambda: select_directory(pretrained_model_entry))
 
 instance_data_label = ttk.Label(root, text="Instance Images Directory:")

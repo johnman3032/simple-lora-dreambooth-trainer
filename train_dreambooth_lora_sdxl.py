@@ -1374,34 +1374,34 @@ def main(args):
 
         # Final inference
         # Load previous pipeline
-        vae = AutoencoderKL.from_pretrained(
-            vae_path,
-            subfolder="vae" if args.pretrained_vae_model_name_or_path is None else None,
-            revision=args.revision,
-            torch_dtype=weight_dtype,
-        )
-        pipeline = StableDiffusionXLPipeline.from_pretrained(
-            args.pretrained_model_name_or_path, vae=vae, revision=args.revision, torch_dtype=weight_dtype
-        )
+        # vae = AutoencoderKL.from_pretrained(
+        #     vae_path,
+        #     subfolder="vae" if args.pretrained_vae_model_name_or_path is None else None,
+        #     revision=args.revision,
+        #     torch_dtype=weight_dtype,
+        # )
+        # pipeline = StableDiffusionXLPipeline.from_pretrained(
+        #     args.pretrained_model_name_or_path, vae=vae, revision=args.revision, torch_dtype=weight_dtype
+        # )
 
         # We train on the simplified learning objective. If we were previously predicting a variance, we need the scheduler to ignore it
         scheduler_args = {}
 
-        if "variance_type" in pipeline.scheduler.config:
-            variance_type = pipeline.scheduler.config.variance_type
+        # if "variance_type" in pipeline.scheduler.config:
+        #     variance_type = pipeline.scheduler.config.variance_type
 
-            if variance_type in ["learned", "learned_range"]:
-                variance_type = "fixed_small"
+        #     if variance_type in ["learned", "learned_range"]:
+        #         variance_type = "fixed_small"
 
-            scheduler_args["variance_type"] = variance_type
+        #     scheduler_args["variance_type"] = variance_type
 
-        pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config, **scheduler_args)
+        # pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config, **scheduler_args)
 
         # load attention processors
-        pipeline.load_lora_weights(args.output_dir)
+        # pipeline.load_lora_weights(args.output_dir)
 
         # run inference
-        images = []
+        # images = []
         if args.validation_prompt and args.num_validation_images > 0:
             pipeline = pipeline.to(accelerator.device)
             generator = torch.Generator(device=accelerator.device).manual_seed(args.seed) if args.seed else None

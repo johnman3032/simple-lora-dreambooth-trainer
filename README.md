@@ -5,7 +5,14 @@ UIs load LoRAs differently. The full Dreambooth models do work for all other
 UI however.**
 
 **Python installation required, I recommend Python 3.10.6 but slightly
-newer/older versions should work as well.**
+newer/older versions should work as well. Make sure to check "Add Python 3.x to PATH",
+otherwise the installer won't be able to create a virtual environment.**
+
+**You also need git:
+https://git-scm.com/download/win
+make sure that the option "Git LFS (Large File Support)" is enabled when installing.**
+
+
 
 This is a small training GUI for Stable Diffusion 1.5 and XL
 It is intended to simplify the Stable Diffusion training process,

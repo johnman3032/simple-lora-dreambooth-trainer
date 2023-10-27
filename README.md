@@ -93,6 +93,12 @@ I recommend you keep the standard sd1.5/sdxl base model, even if you train
 on something like anime images. Just use the LoRA with an anime model
 later on.
 
+For Dreambooth model training, remember to keep your
+"output-path" folder empty, because you will have to convert the Diffusers-type
+model over to a Safetensors-type model. This is quite easy, you just have to run
+"diffusers_to_safetensors_converter.bat", and the output model will be saved
+in "converted-model-path".
+
 ### BATCH SIZE
 How many images to train per step. When you have a lot of VRAM left, 
 it may seem like a good idea to train 2, 4, or even more images per step,
@@ -125,13 +131,6 @@ steps (if your total steps are 6400, you can enter 1600 or 800)
 
 So even if your final LoRA is complete garbage and overfitted, you can
 still try out the LoRAs that were saved in between.
-
-For Dreambooth model training with class images you need to include the
-number of class images with the total step calculation. Remember to keep your
-"output-path" folder empty, because you will have to convert the Diffusers-type
-model over to a Safetensors-type model. This is quite easy, you just have to run
-"diffusers_to_safetensors_converter.bat", and the output model will be saved
-in "converted-model-path".
 
 ### Use 8-bit-AdamW
 This optimizer saves a lot of VRAM over AdamW, at only a minimal loss in

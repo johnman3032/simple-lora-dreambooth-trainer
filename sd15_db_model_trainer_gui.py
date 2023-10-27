@@ -22,7 +22,7 @@ def run_script():
     # Adding arguments based on the GUI values
     cmd.extend(["--pretrained_model_name_or_path", pretrained_model_entry.get()])
     cmd.extend(["--instance_data_dir", instance_data_entry.get()])
-    cmd.extend(["--class_data_dir", class_data_entry.get()])
+    # cmd.extend(["--class_data_dir", class_data_entry.get()])
     cmd.extend(["--instance_prompt", instance_prompt_entry.get()])
     cmd.extend(["--class_prompt", class_prompt_entry.get()])
     cmd.extend(["--output_dir", output_dir_entry.get()])
@@ -39,8 +39,8 @@ def run_script():
     # cmd.extend(["--with_prior_preservation"])
     
     # Flags
-    if with_prior_preservation_var.get():
-        cmd.extend(["--with_prior_preservation"])
+    # if with_prior_preservation_var.get():
+    #     cmd.extend(["--with_prior_preservation"])
     if set_grads_to_none_var.get():
         cmd.extend(["--set_grads_to_none"])
     if gradient_checkpointing_var.get():
@@ -74,10 +74,10 @@ instance_data_entry = ttk.Entry(root, width=50)
 instance_data_entry.insert(0, "instance-imgs")
 instance_data_button = ttk.Button(root, text="Browse", command=lambda: select_directory(instance_data_entry))
 
-class_data_label = ttk.Label(root, text="Class Images Directory:")
-class_data_entry = ttk.Entry(root, width=50)
-class_data_entry.insert(0, "class-imgs-db")
-class_data_button = ttk.Button(root, text="Browse", command=lambda: select_directory(class_data_entry))
+# class_data_label = ttk.Label(root, text="Class Images Directory:")
+# class_data_entry = ttk.Entry(root, width=50)
+# class_data_entry.insert(0, "class-imgs-db")
+# class_data_button = ttk.Button(root, text="Browse", command=lambda: select_directory(class_data_entry))
 
 
 instance_prompt_label = ttk.Label(root, text="Instance Prompt (The trigger token that will \"activate\" your LoRA, recommend choosing something random like sgu48 or catnbk):")
@@ -136,8 +136,8 @@ offset_noise_var = tk.BooleanVar()
 offset_noise_checkbox = ttk.Checkbutton(root, text="Offset noise, improves editability of the model. Recommended.", variable=offset_noise_var)
 
 # Checkboxes
-with_prior_preservation_var = tk.BooleanVar()
-with_prior_preservation_checkbox = ttk.Checkbutton(root, text="With Prior Preservation (adds prior preservation loss, recommended.)", variable=with_prior_preservation_var)
+# with_prior_preservation_var = tk.BooleanVar()
+# with_prior_preservation_checkbox = ttk.Checkbutton(root, text="With Prior Preservation (adds prior preservation loss, recommended.)", variable=with_prior_preservation_var)
 
 set_grads_to_none_var = tk.BooleanVar()
 set_grads_to_none_checkbox = ttk.Checkbutton(root, text="Save more VRAM by setting the grads to none instead of zero. Recommended.", variable=set_grads_to_none_var)
@@ -159,7 +159,7 @@ run_button = ttk.Button(root, text="Start Training", command=run_script)
 
 
 # Checkboxes
-with_prior_preservation_checkbox.grid(row=19, column=0, sticky='w', pady=5)
+# with_prior_preservation_checkbox.grid(row=19, column=0, sticky='w', pady=5)
 set_grads_to_none_checkbox.grid(row=19, column=1, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=20, column=0, sticky='w', pady=5)
 enable_xformers_memory_checkbox.grid(row=22, column=0, sticky='w', pady=5)
@@ -175,9 +175,9 @@ instance_data_label.grid(row=1, column=0, sticky='w', pady=5)
 instance_data_entry.grid(row=1, column=1, pady=5)
 instance_data_button.grid(row=1, column=2, pady=5)
 
-class_data_label.grid(row=2, column=0, sticky='w', pady=5)
-class_data_entry.grid(row=2, column=1, pady=5)
-class_data_button.grid(row=2, column=2, pady=5)
+# class_data_label.grid(row=2, column=0, sticky='w', pady=5)
+# class_data_entry.grid(row=2, column=1, pady=5)
+# class_data_button.grid(row=2, column=2, pady=5)
 
 instance_prompt_label.grid(row=3, column=0, sticky='w', pady=5)
 instance_prompt_entry.grid(row=3, column=1, pady=5)
@@ -223,7 +223,7 @@ prior_generation_precision_combobox.grid(row=18, column=1, pady=5)
 
 # Checkboxes
 offset_noise_checkbox.grid(row=19, column=0, sticky='w', pady=5)
-with_prior_preservation_checkbox.grid(row=20, column=0, sticky='w', pady=5)
+# with_prior_preservation_checkbox.grid(row=20, column=0, sticky='w', pady=5)
 set_grads_to_none_checkbox.grid(row=21, column=0, sticky='w', pady=5)
 gradient_checkpointing_checkbox.grid(row=22, column=0, sticky='w', pady=5)
 scale_lr_checkbox.grid(row=23, column=0, sticky='w', pady=5)

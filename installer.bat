@@ -3,7 +3,6 @@ call python -m venv venv
 call venv\scripts\activate
 mkdir base-model-path
 mkdir base-model-path-sdxl
-mkdir class-imgs-db
 mkdir instance-imgs
 mkdir instance-imgs-sdxl
 mkdir output-path

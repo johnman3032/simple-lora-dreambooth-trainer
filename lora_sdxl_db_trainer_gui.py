@@ -28,6 +28,7 @@ def run_script():
     cmd.extend(["--resolution", resolution_combobox.get()])
     cmd.extend(["--train_batch_size", train_batch_size_entry.get()])
     cmd.extend(["--num_train_epochs", num_train_epochs_entry.get()])
+    cmd.extend(["--checkpointing_steps", checkpointing_steps_entry.get()])
     cmd.extend(["--gradient_accumulation_steps", gradient_accumulation_steps_entry.get()])
     cmd.extend(["--learning_rate", learning_rate_entry.get()])
     cmd.extend(["--optimizer", optimizer_combobox.get()])
@@ -89,6 +90,9 @@ train_batch_size_entry.insert(0, "1")
 
 num_train_epochs_label = ttk.Label(root, text="Num of Train Epochs (see README for more info):")
 num_train_epochs_entry = ttk.Entry(root, width=10)
+
+checkpointing_steps_label = ttk.Label(root, text="Save checkpoint every n steps (see README for more info):")
+checkpointing_steps_entry = ttk.Entry(root, width=10)
 
 gradient_accumulation_steps_label = ttk.Label(root, text="Gradient Accumulation Steps (Advanced, leave at 1):")
 gradient_accumulation_steps_entry = ttk.Entry(root, width=10)
@@ -173,6 +177,9 @@ train_batch_size_entry.grid(row=8, column=1, pady=5)
 
 num_train_epochs_label.grid(row=9, column=0, sticky='w', pady=5)
 num_train_epochs_entry.grid(row=9, column=1, pady=5)
+
+checkpointing_steps_label.grid(row=10, column=0, sticky='w', pady=5)
+checkpointing_steps_entry.grid(row=10, column=1, pady=5)
 
 gradient_accumulation_steps_label.grid(row=12, column=0, sticky='w', pady=5)
 gradient_accumulation_steps_entry.grid(row=12, column=1, pady=5)

@@ -13,14 +13,17 @@ def select_directory(entry):
 def run_script():
     """Function to execute the script with the chosen arguments."""
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    python_exe_path = os.path.join(current_dir, "venv", "Scripts", "python.exe")
+    accelerate_exe_path = os.path.join(current_dir, "venv", "Scripts", "accelerate.exe")
     script_path = os.path.join(current_dir, "train_dreambooth.py")
 
-    cmd = [python_exe_path, script_path]
+    cmd = [accelerate_exe_path, "launch", script_path]
 
 
     # Adding arguments based on the GUI values
     cmd.extend(["--pretrained_model_name_or_path", pretrained_model_entry.get()])
+    resume_checkpoint_path = resume_from_checkpoint_entry.get()
+    if resume_checkpoint_path.strip():
+        cmd.extend(["--resume_from_checkpoint", resume_checkpoint_path])
     cmd.extend(["--instance_data_dir", instance_data_entry.get()])
     # cmd.extend(["--class_data_dir", class_data_entry.get()])
     cmd.extend(["--instance_prompt", instance_prompt_entry.get()])
@@ -68,6 +71,12 @@ pretrained_model_label = ttk.Label(root, text="Diffusers Base Model Path:")
 pretrained_model_entry = ttk.Entry(root, width=50)
 pretrained_model_entry.insert(0, "base-model-path/stable-diffusion-v1-5")
 pretrained_model_button = ttk.Button(root, text="Browse", command=lambda: select_directory(pretrained_model_entry))
+
+resume_from_checkpoint_label = ttk.Label(root, text="Path to the checkpoint folder IF you are resuming from previous training")
+resume_from_checkpoint_entry = ttk.Entry(root, width=50)
+resume_from_checkpoint_entry.insert(0, "")
+resume_from_checkpoint_button = ttk.Button(root, text="Browse", command=lambda: select_directory(resume_from_checkpoint_entry))
+
 
 instance_data_label = ttk.Label(root, text="Instance Images Directory:")
 instance_data_entry = ttk.Entry(root, width=50)
@@ -178,6 +187,10 @@ instance_data_button.grid(row=1, column=2, pady=5)
 # class_data_label.grid(row=2, column=0, sticky='w', pady=5)
 # class_data_entry.grid(row=2, column=1, pady=5)
 # class_data_button.grid(row=2, column=2, pady=5)
+
+resume_from_checkpoint_label.grid(row=2, column=0, sticky='w', pady=5)
+resume_from_checkpoint_entry.grid(row=2, column=1, pady=5)
+resume_from_checkpoint_button.grid(row=2, column=2, pady=5)
 
 instance_prompt_label.grid(row=3, column=0, sticky='w', pady=5)
 instance_prompt_entry.grid(row=3, column=1, pady=5)

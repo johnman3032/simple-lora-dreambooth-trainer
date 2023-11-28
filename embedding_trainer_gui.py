@@ -13,10 +13,10 @@ def select_directory(entry):
 def run_script():
     """Function to execute the script with the chosen arguments."""
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    python_exe_path = os.path.join(current_dir, "venv", "Scripts", "python.exe")
+    accelerate_exe_path = os.path.join(current_dir, "venv", "Scripts", "accelerate.exe")
     script_path = os.path.join(current_dir, "textual_inversion.py")
 
-    cmd = [python_exe_path, script_path]
+    cmd = [accelerate_exe_path, "launch", script_path]
 
 
     # Adding arguments based on the GUI values

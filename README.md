@@ -135,14 +135,13 @@ still try out the LoRAs that were saved in between.
 ### Use 8-bit-AdamW
 This optimizer saves a lot of VRAM over AdamW, at only a minimal loss in
 quality. However, it is reported to not work for SDXL and may only
-work for 30XX/400XX series Nvidia GPUs.
+work for 30XX/40XX series Nvidia GPUs.
 
 
 
 ### WHAT IS A LoRA?
-It is basically a smaller model that is "mounted" on the main
-Stable Diffusion checkpoint. It is practical because it takes a
-lot less VRAM to train than a full Dreambooth
+It is basically a smaller model that is "mounted" on the main checkpoint. 
+It is practical because it takes a lot less VRAM to train than a full Dreambooth model.
 
 
 

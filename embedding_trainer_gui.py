@@ -48,8 +48,8 @@ def run_script():
         cmd.extend(["--center_crop"])
     if gradient_checkpointing_var.get():
         cmd.extend(["--gradient_checkpointing"])
-    if use_8bit_adam_var.get():
-        cmd.extend(["--use_8bit_adam"])
+    #if use_8bit_adam_var.get():
+    #    cmd.extend(["--use_8bit_adam"])
     if enable_xformers_memory_var.get():
         cmd.extend(["--enable_xformers_memory_efficient_attention"])
     if scale_lr_var.get():
@@ -114,8 +114,8 @@ learning_rate_label = ttk.Label(root, text="Learning Rate (0.0001 recommended):"
 learning_rate_entry = ttk.Entry(root, width=15)
 learning_rate_entry.insert(0, "0.0001")
 
-use_8bit_adam_var = tk.BooleanVar()
-use_8bit_adam_checkbox = ttk.Checkbutton(root, text="Use 8-bit-AdamW (regular AdamW will be used otherwise)", variable=use_8bit_adam_var)
+#use_8bit_adam_var = tk.BooleanVar()
+#use_8bit_adam_checkbox = ttk.Checkbutton(root, text="Use 8-bit-AdamW (regular AdamW will be used otherwise)", variable=use_8bit_adam_var)
 
 lr_scheduler_label = ttk.Label(root, text="LR Scheduler:")
 lr_scheduler_combobox = ttk.Combobox(root, values=["constant", "constant_with_warmup"], width=20)
@@ -204,7 +204,7 @@ gradient_accumulation_steps_entry.grid(row=12, column=1, pady=5)
 learning_rate_label.grid(row=13, column=0, sticky='w', pady=5)
 learning_rate_entry.grid(row=13, column=1, pady=5)
 
-use_8bit_adam_checkbox.grid(row=14, column=0, sticky='w', pady=5)
+#use_8bit_adam_checkbox.grid(row=14, column=0, sticky='w', pady=5)
 
 lr_scheduler_label.grid(row=15, column=0, sticky='w', pady=5)
 lr_scheduler_combobox.grid(row=15, column=1, pady=5)

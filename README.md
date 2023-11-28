@@ -1,7 +1,7 @@
 *Made using scripts from https://github.com/huggingface/diffusers*
 
 **NOTE: The LoRAs only work for ComfyUI at this time, A1111 and other
-UIs load LoRAs differently. The full Dreambooth models do work for all other
+UIs load LoRAs differently. The full Dreambooth models and embeddings do work for all other
 UI however.**
 
 **Python installation required, I recommend Python 3.10.6 but slightly
